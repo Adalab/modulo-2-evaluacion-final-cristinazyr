@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Evaluación Módulo 2</title>
+    <link rel="stylesheet" href="./main.css" />
+  </head>
+
+  <body class="page darkmode">
+    <header class="header mb-1">
+      <h1 class="title">Characters</h1>
+    </header>
+
+    <main class="mt-1">
+      <form>
+        <input
+          class="form__input-text js__characterInput"
+          type="text"
+          name="character"
+          id="character"
+          placeholder="Example: Olu Mel"
+        />
+
+        <input
+          class="form__btn js__searchButton"
+          type="submit"
+          value="Buscar"
+        />
+      </form>
+
+      <div class="listings">
+        <section class="characters">
+          <h2>Lista</h2>
+
+          <ul class="js__charactersUl cards"></ul>
+        </section>
+
+        <section class="favourites">
+          <h2>Favoritas</h2>
+
+          <ul class="js__favouritesUl cards"></ul>
+        </section>
+      </div>
+    </main>
+
+    <script src="./main.js"></script>
+  </body>
+</html>

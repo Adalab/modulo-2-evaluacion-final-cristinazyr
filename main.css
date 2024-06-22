@@ -1,0 +1,59 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+.page.darkmode {
+  background-color: #5d5d5d;
+  
+  * {
+    color: #f6f6f6;
+  }
+  
+  .title {
+    padding-left: .5em;
+    width: 70%;
+    border-bottom: solid 4px  #2f9f8d;
+  }
+  
+  .card {
+    background-color: #5d5d5d;
+    padding: 0.3em;
+  }
+  
+  .form__input-text {
+    color: black;
+  }
+
+}
+.cards {
+  gap: 1em;
+
+  .paletteCard {
+    padding: 1em;
+    cursor: pointer;
+    
+    .colors {
+      display: flex;
+      list-style-type: none;
+      border: solid 5px #f6f6f6;
+      margin-top: 1rem;
+      
+      .color {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+}
+
+.listings {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+.favourite {
+  background-color: #c93825;
+}
