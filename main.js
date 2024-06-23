@@ -15,7 +15,6 @@ let favourites = [];
 // FUNCIONES
 
 function createLiForCharacters(oneObject) {
-  // Aquí asumimos que oneObject.imageUrl es una única URL de imagen
   const html = `
       <div class="js__characterCard characterCard" data-id="${oneObject._id}">
         <img src="${
@@ -52,6 +51,34 @@ function renderFavourites() {
   }
 
   favouritesUl.innerHTML = html;
+}
+
+// FUNCIONES DE EVENTOS (HANDLER)
+
+function handleClickCard(ev) {
+  const clickedCharacterId = ev.currentTarget.dataset.id;
+  console.log(clickedCharacterId);
+
+  // Busca un obj en data que tenga el id = clickCharacterId
+  const clickedCharacterObj = data.find(
+    (eachCharacterObj) => eachCharacterObj.id === clickedCharacterId
+  );
+  console.log(clickedCharacterObj);
+
+  // Busca un obj EN FAVORITOS que el id = clickedCharacterId me devuelve su posición (index)
+  const clickedFavoriteIndex = favourites.findIndex(
+    (eachCharacterObj) => eachCharacterObj.id === clickedCharacterId
+  );
+
+  if (clickedFavoriteIndex === -1) {
+    favourites.push(clickedPaletteObj);
+
+    localStorage.setItem("favs", JSON.stringify(favourites));
+
+    renderFavourites();
+  }
+
+  ev.currentTarget.classList.toggle("favourite");
 }
 
 // CÓDIGO CUANDO CARGA LA PÁGINA
