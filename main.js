@@ -16,21 +16,21 @@ let favourites = [];
 
 function createLiForCharacters(oneObject) {
   const html = `
-      <div class="js__characterCard characterCard" data-id="${oneObject._id}">
-        <img src="${
-          oneObject.imageUrl ||
-          "https://via.placeholder.com/210x295/ffffff/555555/?text=Disney"
-        }" alt="${oneObject.name}">
-        <h3>${oneObject.name}</h3>
-      </div>
-    `;
+  <li class="js__characterCard characterCard" data-id="${oneObject._id}">
+    <img src="${
+      oneObject.imageUrl ||
+      "https://via.placeholder.com/210x295/ffffff/555555/?text=Disney"
+    }" alt="${oneObject.name}">
+    <h3>${oneObject.name}</h3>
+  </li>
+`;
   return html;
 }
 
-function renderCharacters(data) {
+function renderCharacters(vari) {
   let html = "";
 
-  for (const oneObject of data) {
+  for (const oneObject of vari) {
     html += createLiForCharacters(oneObject);
   }
 
@@ -59,27 +59,43 @@ function handleClickCard(ev) {
   const clickedCharacterId = ev.currentTarget.dataset.id;
   console.log(clickedCharacterId);
 
-  // Busca un obj en data que tenga el id = clickCharacterId
   const clickedCharacterObj = data.find(
-    (eachCharacterObj) => eachCharacterObj.id === clickedCharacterId
+    (eachCharacterObj) => eachCharacterObj._id === clickedCharacterId
   );
-  console.log(clickedCharacterObj);
 
-  // Busca un obj EN FAVORITOS que el id = clickedCharacterId me devuelve su posición (index)
   const clickedFavoriteIndex = favourites.findIndex(
-    (eachCharacterObj) => eachCharacterObj.id === clickedCharacterId
+    (eachCharacterObj) => eachCharacterObj._id === clickedCharacterId
   );
 
   if (clickedFavoriteIndex === -1) {
-    favourites.push(clickedPaletteObj);
-
+    favourites.push(clickedCharacterObj);
     localStorage.setItem("favs", JSON.stringify(favourites));
 
     renderFavourites();
+  } else {
+    favourites.splice(clickedFavoriteIndex, 1);
+    localStorage.setItem("favs", JSON.stringify(favourites));
+    renderFavourites();
   }
-
   ev.currentTarget.classList.toggle("favourite");
 }
+function handleClickSearch(ev) {
+  ev.preventDefault();
+
+  const searchedCharacter = characterInput.value;
+
+  const filteredData = data.filter((eachCharacterObj) =>
+    eachCharacterObj.name
+      .toLowerCase()
+      .includes(searchedCharacter.toLowerCase())
+  );
+
+  renderCharacters(filteredData);
+}
+
+// EVENTOS
+
+searchButton.addEventListener("click", handleClickSearch);
 
 // CÓDIGO CUANDO CARGA LA PÁGINA
 
