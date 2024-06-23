@@ -4,54 +4,96 @@
   padding: 0;
 }
 
+.background{
+  background-size: cover;
+  min-width: 100%;
+  height: 450px;
+  display: flex;
+  justify-content: center;
+}
+.title_box{
+  position:absolute;
+  width: 800px;
+  height: 80px;
+  background-color: white;
+  margin-top: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
+}
+.tow_title{
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 120px;
+  margin-left: 100px;
+  
+
+}
+.form__input-text{
+  width: 700px;
+  height: 30px;
+  border-color: blue;
+}
+.form__btn{
+  width: 60px;
+  height: 30px;
+  background-color: blue;
+}
 .page.darkmode {
-  background-color: #5d5d5d;
+  background-color:#e2dede;}
   
-  * {
-    color: #f6f6f6;
-  }
+ 
   
-  .title {
-    padding-left: .5em;
-    width: 70%;
-    border-bottom: solid 4px  #2f9f8d;
-  }
-  
-  .card {
-    background-color: #5d5d5d;
-    padding: 0.3em;
-  }
-  
-  .form__input-text {
-    color: black;
-  }
+.title {
+   
+    color: blue;
+    margin-left: 560px;
 
 }
-.cards {
-  gap: 1em;
-
-  .paletteCard {
-    padding: 1em;
-    cursor: pointer;
+.title_favourite{
+  
+    color: blue;
     
-    .colors {
-      display: flex;
-      list-style-type: none;
-      border: solid 5px #f6f6f6;
-      margin-top: 1rem;
-      
-      .color {
-        width: 30px;
-        height: 30px;
-      }
-    }
-  }
 }
+ i{
+  color: blue;
+ }
+.cards{
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  margin-top: 20px;
+}   
+  
+
+
+.characterCard {
+    background-color:white;
+    padding: 0.3em;
+    width: 240px;
+    height: 350px;
+    
+    
+  }
+.onepic{
+    width: 220px;
+    height: 280px;
+    padding-left:10px;
+    padding-top: 10px;
+  }
+
+.characterName{
+  color: black;
+}
+
 
 .listings {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
+
+display: grid;
+grid-template-columns: 1fr 3fr;
+
 }
 
 .favourite {

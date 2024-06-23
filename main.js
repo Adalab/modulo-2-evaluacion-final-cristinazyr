@@ -17,11 +17,11 @@ let favourites = [];
 function createLiForCharacters(oneObject) {
   const html = `
   <li class="js__characterCard characterCard" data-id="${oneObject._id}">
-    <img src="${
+    <img class="onepic" src="${
       oneObject.imageUrl ||
       "https://via.placeholder.com/210x295/ffffff/555555/?text=Disney"
     }" alt="${oneObject.name}">
-    <h3>${oneObject.name}</h3>
+    <h3 class="characterName">${oneObject.name}</h3>
   </li>
 `;
   return html;

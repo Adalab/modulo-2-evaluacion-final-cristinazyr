@@ -5,41 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Evaluación Módulo 2</title>
     <link rel="stylesheet" href="./main.css" />
+    <script
+      src="https://kit.fontawesome.com/19ae9bf110.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
 
   <body class="page darkmode">
     <header class="header mb-1">
-      <h1 class="title">Characters</h1>
+      <div class="background">
+        <img class="background" src="./pic.png" alt="background pic" />
+        <div class="title_box">
+          <form>
+            <input
+              class="form__input-text js__characterInput"
+              type="text"
+              name="character"
+              id="character"
+              placeholder="Example: Olu Mel"
+            />
+
+            <input
+              class="form__btn js__searchButton"
+              type="submit"
+              value="Search"
+            />
+          </form>
+        </div>
+      </div>
     </header>
 
-    <main class="mt-1">
-      <form>
-        <input
-          class="form__input-text js__characterInput"
-          type="text"
-          name="character"
-          id="character"
-          placeholder="Example: Olu Mel"
-        />
-
-        <input
-          class="form__btn js__searchButton"
-          type="submit"
-          value="Buscar"
-        />
-      </form>
-
+    <main>
+      <div class="tow_title">
+        <h2 class="title_favourite">
+          Favorites <i class="fa-solid fa-heart"></i>
+        </h2>
+        <h2 class="title">Characters <i class="fa-solid fa-heart"></i></h2>
+      </div>
       <div class="listings">
-        <section class="characters">
-          <h2>Lista</h2>
-
-          <ul class="js__charactersUl cards"></ul>
-        </section>
-
         <section class="favourites">
-          <h2>Favoritas</h2>
-
           <ul class="js__favouritesUl cards"></ul>
+        </section>
+        <section class="characters">
+          <ul class="js__charactersUl cards"></ul>
         </section>
       </div>
     </main>
