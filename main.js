@@ -56,7 +56,7 @@ function renderFavourites() {
 // FUNCIONES DE EVENTOS (HANDLER)
 
 function handleClickCard(ev) {
-  const clickedCharacterId = ev.currentTarget.dataset.id;
+  const clickedCharacterId = parseInt(ev.currentTarget.dataset.id);
   console.log(clickedCharacterId);
 
   const clickedCharacterObj = data.find(
