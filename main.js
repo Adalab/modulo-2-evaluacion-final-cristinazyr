@@ -6,7 +6,7 @@ const charactersUl = document.querySelector(".js__charactersUl");
 const favouritesUl = document.querySelector(".js__favouritesUl");
 const searchButton = document.querySelector(".js__searchButton");
 const characterInput = document.querySelector(".js__characterInput");
-
+const btnLog = document.querySelector(".js__btnLog");
 // DATOS
 
 let data = [];
@@ -22,6 +22,7 @@ function createLiForCharacters(oneObject) {
       "https://via.placeholder.com/210x295/ffffff/555555/?text=Disney"
     }" alt="${oneObject.name}">
     <h3 class="characterName">${oneObject.name}</h3>
+    <h3 class="characterId"> ${oneObject._id}</h3>
   </li>
 `;
   return html;
@@ -35,6 +36,8 @@ function renderCharacters(vari) {
   }
 
   charactersUl.innerHTML = html;
+
+  //Favoritos
 
   const characterAllCards = document.querySelectorAll(".js__characterCard");
 
@@ -59,10 +62,11 @@ function handleClickCard(ev) {
   const clickedCharacterId = parseInt(ev.currentTarget.dataset.id);
   console.log(clickedCharacterId);
 
+  //Buscar un obj en data que tenga el id = clickedCharacterId
   const clickedCharacterObj = data.find(
     (eachCharacterObj) => eachCharacterObj._id === clickedCharacterId
   );
-
+  //Buscar un obj en favoritos que el id = clickedCharacterId y me devuelve su posicion (index)
   const clickedFavoriteIndex = favourites.findIndex(
     (eachCharacterObj) => eachCharacterObj._id === clickedCharacterId
   );
@@ -79,6 +83,7 @@ function handleClickCard(ev) {
   }
   ev.currentTarget.classList.toggle("favourite");
 }
+//Buscador
 function handleClickSearch(ev) {
   ev.preventDefault();
 
@@ -92,10 +97,17 @@ function handleClickSearch(ev) {
 
   renderCharacters(filteredData);
 }
+//Funcion de btn LOG
+function handleClickLog(ev) {
+  for (let i = 0; i < favourites.length; i++) {
+    console.log(favourites[i].name);
+  }
+}
 
 // EVENTOS
 
 searchButton.addEventListener("click", handleClickSearch);
+btnLog.addEventListener("click", handleClickLog);
 
 // CÓDIGO CUANDO CARGA LA PÁGINA
 
